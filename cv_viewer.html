@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CV Viewer</title>
+    <link href="viewer_styling.css" rel="stylesheet">
+
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-firestore.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCr69lpsaMeLtjxPq1Qe32fx_gL979wtc0",
+            authDomain: "auth-practicing.firebaseapp.com",
+            databaseURL: "https://auth-practicing.firebaseio.com",
+            projectId: "auth-practicing",
+            storageBucket: "auth-practicing.appspot.com",
+            messagingSenderId: "406848136357",
+            appId: "1:406848136357:web:53bc94139e7af9ce22194c",
+            measurementId: "G-Q4FNSDGVH9"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Compiled and minified CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</head>
+<body>
+<div class="header">
+    <img id="heading-img"
+         src="https://www.resumecoach.com/wp-content/themes/cv-wp-theme-resumecoach/library/images/logo-rc-home.png">
+</div>
+<img id="loading" src="imgs/loading.svg">
+<div class="cards-container">
+    <ul id="CVs_cards"></ul>
+</div>
+
+
+<script>
+    firebase.auth().onAuthStateChanged(function (user) {
+            let img = document.querySelector('#loading');
+            if (user) {
+                userId = user.uid;
+                var docRef = firebase.firestore();
+
+                docRef.collection('users').get().then((snapShot) => {
+                    //getting all the users
+                    if (checkIfSharable(snapShot.docs)) {
+                        //show new page
+                        console.log('new page');
+                        getDataFromSharableLink(docRef);
+                    } else {
+                        console.log('user id = ' + user.uid);
+                        docRef.collection('users').doc(user.uid).collection('CVs').get().then((snapshot) => {
+                            //check if its shared link or not
+
+                            if (snapshot.docs.length == 0) {
+                                img.remove();
+                                let container = document.querySelector('.cards-container');
+                                container.innerHTML =
+                                    '<img id="no-data" src="imgs/no%20data.svg">' +
+                                    '<h5 style="margin: auto ;text-align: center; margin-top: 2%;">Sorry \nNo Data Found</h5>';
+                                let divs = document.getElementsByTagName('div');
+
+                            } else {
+                                snapshot.docs.forEach(doc => {
+                                    viewCard(doc, 'share');
+                                });
+                                img.remove();
+                            }
+                            //make it scrollable
+                            let body = document.getElementsByTagName('body');
+
+                        }).catch((error) => {
+                            console.log(error);
+                        });
+                    }
+                });
+            } else {
+                var docRef = firebase.firestore();
+                docRef.collection('users').get().then((snapShot) => {
+                    //getting all the users
+                    if (checkIfSharable(snapShot.docs)) {
+                        //show new page
+                        console.log('new page');
+                        getDataFromSharableLink(docRef);
+                    }
+                }).catch((error) => {
+                    console.log('an error' + error);
+                });
+            }
+        }
+    );
+</script>
+<script src="viewer.js"></script>
+</body>
+</html>

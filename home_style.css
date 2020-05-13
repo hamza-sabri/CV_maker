@@ -1,0 +1,366 @@
+#mybod {
+    padding: 0;
+    margin: 0;
+    background: #F2F7FA;
+    overflow-x: hidden;
+}
+
+
+#heading-div {
+    width: 100%;
+    height: 65px;
+    background: white;
+    margin: 0 2px;
+}
+
+#heading-img {
+    width: 180px;
+    margin-left: 10%;
+    margin-top: 8px;
+}
+
+#signing-up {
+    height: 60px;
+    float: right;
+    margin-right: 80px;
+}
+
+ul {
+    list-style: none;
+}
+
+#signing-list li {
+    display: inline-block;
+    font-size: 18pt;
+}
+
+#signing-list li a {
+    color: black;
+    text-decoration: none;
+}
+
+.dumb-space {
+    margin-right: 50px;
+}
+
+h1, .my_h {
+    max-width: 672px;
+    font-size: 38px;
+    line-height: 43px;
+    color: #23476F;
+    margin: 60px auto 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+#small-intro {
+    max-width: 710px;
+    font-size: 22px;
+    line-height: 40px;
+    color: black;
+    margin: 0 auto 20px;
+    text-align: center;
+    padding: 0;
+}
+
+#signing-up-options {
+    max-width: 710px;
+    line-height: 40px;
+    margin: 40px auto 20px;
+    text-align: center;
+    padding: 0;
+}
+
+
+#signing-up ul li a:hover {
+    color: #FF6767;
+}
+
+#signing-up-options li {
+    display: inline-block;
+}
+
+.sign-up-by {
+    width: 280px;
+    height: 50px;
+    border-radius: 5px;
+    border: solid black 1px;
+}
+
+.sign-up-by img {
+    float: left;
+    margin: 12px;
+}
+
+.sign-up-by p {
+    float: right;
+    margin-top: 5px;
+    margin-right: 20px;
+    color: black;
+}
+
+.red {
+    background: #FF6767;
+
+}
+
+.red p {
+    color: white;
+}
+
+#mid-div {
+    width: 100%;
+    height: 300px;
+    background: #E5EDF2;
+    text-align: center;
+    overflow: hidden;
+}
+
+#container {
+    margin: auto;
+    width: 1150px;
+    height: 300px;
+}
+
+
+#left, #right {
+    width: 260px;
+    height: 300px;
+    display: inline-block;
+    margin-bottom: 102px;
+    text-align: start;
+    float: left;
+}
+
+
+#right {
+    float: right;
+}
+
+#main-img {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -300px;
+    display: block;
+}
+
+#container h2 {
+    color: #2298E9;
+    font-weight: 700;
+    margin-bottom: 0;
+    font-size: 20px;
+    text-align: end;
+
+}
+
+.up p, .down p {
+    font-size: 17px;
+    margin-top: 12px;
+    text-align: end;
+    max-width: 240px;
+    margin-right: 40px;
+    font-weight: bold;
+}
+
+.up img, .down img {
+    width: 40px;
+    height: 40px;
+    float: right;
+    margin-left: 10px;
+}
+
+.up {
+    margin-top: 30px;
+}
+
+.down {
+    margin-top: 60px;
+}
+
+#left, .down {
+    margin-top: 0px;
+}
+
+#left .down p {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#right .up img, #right .down img {
+    float: left;
+}
+
+#right .up h2, #right .down h2 {
+    margin-left: 70px;
+    text-align: start;
+}
+
+#right .up p, #right .down p {
+    text-align: start;
+    margin-left: 70px;
+}
+
+#right .down p {
+    margin-right: 20px;
+}
+
+#right .down {
+    margin-top: 20px;
+}
+
+#dumb {
+    background: greenyellow;
+    width: 1200px;
+    height: 400px;
+    margin: auto;
+
+}
+
+#professional {
+    max-width: 500px;
+    text-align: center;
+}
+
+#resume_options {
+    margin: 80px auto;
+    width: 800px;
+    height: 80px;
+    text-align: center;
+}
+
+#resume_options ul {
+    list-style: none;
+    display: inline-block;
+
+}
+
+#resume_options ul li {
+    float: left;
+    margin-right: 50px;
+}
+
+#resume_options ul li a div {
+    border: solid #23476F 1px;
+    padding: 8px 25px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+#resume_options ul li a #all {
+    border: solid #23476F 2pt;
+}
+
+#resume_options ul li div:hover {
+    border: solid #23476F 2pt;
+    border-radius: 6px;
+}
+
+#resume_options ul li a {
+    text-decoration: none;
+    color: #023448;
+    font-family: Ebrima;
+
+}
+
+#slider {
+    /*background: greenyellow;*/
+    width: 100%;
+    /*height: 200px;*/
+    margin: auto;
+    background: #FF6767;
+}
+
+#dumb_stuff {
+    background: #214761;
+    width: 100%;
+    height: 350px;
+    text-align: center;
+    margin-top: 80px;
+}
+
+#foot_container {
+    width: 1000px;
+    height: 250px;
+    margin: 50px auto;
+    margin-bottom: 0;
+    display: inline-block;
+
+}
+
+#resume_tools, #about_resume_coach, #support {
+    width: 300px;
+    height: 300px;
+    float: left;
+    margin-left: 10px;
+    text-align: start;
+}
+
+#about_resume_coach {
+    margin: auto;
+    display: inline-block;
+}
+
+#support {
+    float: right;
+}
+
+.custom_h3 {
+    color: #CBD3D9;
+    font-family: "Cooper Hewitt", sans-serif;
+    margin-left: 0px;
+    font-size: 28px;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+#resume_tools ul li a, #about_resume_coach ul li a, #support ul li a {
+    color: #CBD3D9;
+    text-decoration: none;
+}
+
+#resume_tools ul li a:hover, #about_resume_coach ul li a:hover, #support ul li a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+#resume_tools ul li, #about_resume_coach ul li, #support ul li {
+    padding-top: 3px;
+}
+
+#bottom_div {
+    width: 100%;
+    height: 40px;
+    background: #1F2B33;
+    margin-top: 20px;
+}
+
+#facebook_container {
+    width: 1200px;
+    height: 30px;
+    margin: auto;
+}
+
+#last_sapn {
+    color: #fff;
+    font-size: 10pt;
+    float: left;
+    margin-top: 10px;
+}
+
+#facebook_container img {
+    float: right;
+    border-radius: 5px;
+    width: 30px;
+    margin-top: 5px;
+}
+
+.sign_up {
+    width: 100%;
+    height: 50px;
+    float: right;
+}
+
+.btn {
+    float: right;
+}

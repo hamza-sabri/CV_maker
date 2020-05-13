@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    height: 100%;
+}
+
+.header {
+    background: #2298E9;
+    width: 100%;
+    height: 8vh;
+}
+
+.cards-container {
+    width: 95%;
+    height: 90vh;
+    margin: auto
+}
+
+#CVs_cards li {
+    float: left;
+    margin-top: 20px;
+}
+
+#CVs_cards li a div {
+    width: 34vh;
+    height: 40vh;
+    background: #fff;
+    margin-left: 20px;
+    box-shadow: 0 6px 10px 2px rgba(0, 0, 0, 0.2);
+
+}
+
+#CVs_cards li a div:hover {
+    box-shadow: 4px 12px 12px 4px rgba(0, 0, 0, 0.2);
+}
+
+#CVs_cards li a div img {
+    width: 34vh;
+    height: 35vh;
+}
+
+#CVs_cards li a div h5 {
+    background: #9f9f9f;
+    text-align: center;
+    margin-top: -5px;
+    color: #2298E9;
+    font-weight: 500;
+    font-size: 20px;
+    padding: 8px;
+}
+
+.card h6 {
+    float: left;
+    color: white;
+}
+
+#loading {
+    margin-left: 35%;
+    margin-top: 10%;
+    width: 30%;
+    height: 30%;
+}
+
+#no-data {
+    margin-left: 25%;
+    margin-top: 10%;
+    width: 50%;
+    height: 50%;
+}
+
+#heading-img {
+    width: 180px;
+    margin-left: 45%;
+    margin-top: 8px;
+}

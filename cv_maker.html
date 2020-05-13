@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CV Maker</title>
+    <link href="cv_maker_stylesheet.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-firestore.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCr69lpsaMeLtjxPq1Qe32fx_gL979wtc0",
+            authDomain: "auth-practicing.firebaseapp.com",
+            databaseURL: "https://auth-practicing.firebaseio.com",
+            projectId: "auth-practicing",
+            storageBucket: "auth-practicing.appspot.com",
+            messagingSenderId: "406848136357",
+            appId: "1:406848136357:web:53bc94139e7af9ce22194c",
+            measurementId: "G-Q4FNSDGVH9"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+<div id="app_bar">
+    <a href="#"><img alt="cv maker logo"
+                     id="heading-img"
+                     src="https://www.resumecoach.com/wp-content/themes/cv-wp-theme-resumecoach/library/images/logo-rc-home.png"></a>
+    <ul>
+        <li><a href="#" id="log_out_button" onclick="logOut()">Log out</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="home.html">Home</a></li> <!-- think this throw-->
+    </ul>
+</div>
+<div id="grey_app_bar">
+    <div id="center_grey_app_bar">
+        <img alt="pen to edit" src="imgs/pen.png">
+        <input contenteditable="true" id="resume_title" placeholder="Untitled Resume" style="margin-top: -.5px"
+               type="text">
+
+    </div>
+</div>
+
+<div id="input_div">
+    <div id="vertical_div">
+        <div style="width: 3px;height: 100% ;background: gray;float: right;"></div>
+
+        <div style="margin-top: 20px;margin-left: 10px">
+            <ul>
+                <li><a class="tooltipped" data-position="right" data-tooltip="Create new CV" href="#" href="#"
+                       onclick="reloadDoc()"><i
+                        class="material-icons"><img src="imgs/create_new.png" style="width: 55%;margin-top: 10px"></i></a>
+                </li>
+
+                <li><a class="tooltipped" data-position="right" data-tooltip="Save" href="#" href="#"
+                       onclick="saveAll()"><i
+                        class="material-icons"><img src="imgs/save.png" style="width: 55%;margin-top: 30px"></i></a>
+                </li>
+
+                <li><a class="tooltipped history" data-position="right" data-tooltip="show all CVs" href="#"
+                       href="#" id="history1"
+                       onclick="showCVs()"><i
+                        class="material-icons"><img src="imgs/new.png" style="width: 55%; margin-top: 30px"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="information_collector" onload="inilization()">
+        <h2>Personal Information :</h2>
+        <!-- data-position can be : bottom, top, left, or right -->
+        <!-- data-tooltip defines the tooltip text -->
+
+        <span>Enter your contact information so employers know how to get in touch with you for interviews.</span>
+        <div id="adding_img">
+            <div id="img_div">
+                <img alt="profile" id="profile_img" src="https://www.w3schools.com/howto/img_avatar.png">
+                <span>Profile Photo</span>
+                <a href="#">
+                    <div id="container_of_rounded_div">
+                        <div id="rounded_div">↑</div>
+                        <pre>Add Image</pre>
+                    </div>
+                </a>
+                <div class="switch">
+                    <label id="my_lever">
+                        <input id="my_lever_checkButton" type="checkbox">
+                        <span class="lever" id="lever"></span>
+                        round photo
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div id="text_collector">
+            <div class="input-field col s6 tooltipped" data-position="right" data-tooltip="add only first name">
+                <input class="validate custom_input" id="first_name" oninput="realTimeChanging(this.id)" type="text">
+                <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s5 tooltipped" data-position="right" data-tooltip="add your last name">
+                <input class="validate custom_input" id="last_name" oninput="realTimeChanging(this.id)" type="text">
+                <label for="last_name">Last Name</label>
+            </div>
+
+            <div class="input-field col s5 tooltipped" data-position="right"
+                 data-tooltip="what is your address in your country">
+                <input class="validate custom_input" id="address" oninput="realTimeChanging(this.id)" type="text">
+                <label for="address">Address</label>
+            </div>
+
+            <div class="input-field col s5 tooltipped" data-position="right" data-tooltip="add your nationality here">
+                <input class="validate custom_input" id="nationality" oninput="realTimeChanging(this.id)" type="text">
+                <label for="nationality">Nationality</label>
+            </div>
+
+
+            <div class="input-field col s5 tooltipped" data-position="right" data-tooltip="select your birth day">
+                <input class="datepicker custom_input" id="date" onclick="realTimeChanging(this.id)"
+                       oninput="realTimeChanging(this.id)"
+                       type="text">
+                <label for="date">Birth Date</label>
+            </div>
+
+            <button class="next" onclick="showNext()">
+                <div><span>Next</span></div>
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<div id="portfolio">
+    <h1 id="portfolio-resume-title" style="color: gray">Resume Title</h1>
+    <div id="portfolio_image">
+        <img id="my_img" src="https://www.w3schools.com/howto/img_avatar.png">
+    </div>
+    <div id="personal_info">
+        <h2>Personal Information</h2>
+        <pre>First Name  :</pre>
+        <pre>Last Name   :</pre>
+        <pre>Address     :</pre>
+        <pre>Nationality :</pre>
+        <pre>Birth Date  :</pre>
+        <hr>
+        <h2 style="margin-top: 16px">Contacts :</h2>
+        <pre>Phone Number  :</pre>
+        <pre>Email address :</pre>
+        <pre>Social media  :</pre>
+        <pre>Linked In     :</pre>
+        <pre>GitHub        :</pre>
+    </div>
+</div>
+
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large blue">
+        <i class="large material-icons tooltipped" data-position="left" data-tooltip="Settings"><img
+                src="imgs/settings.png" style="width: 30px;height: 30px; margin-top: 16px"></i>
+    </a>
+    <ul>
+        <li><a class="btn-floating yellow darken-1 tooltipped history" data-position="left" data-tooltip="show all CVs"
+               id="history2"
+               onclick="showCVs()"><i
+                class="material-icons"><img src="imgs/new.png" style="width: 20px;height: 20px;"></i></a></li>
+        <li>
+            <a class="btn-floating red tooltipped" data-position="left" data-tooltip="Save" onclick="saveAll()"><i
+                    class="material-icons"><img src="imgs/save.png" style="width: 20px;height: 20px;"></i></a></li>
+        <li><a class="btn-floating green tooltipped" data-position="left" data-tooltip="Create New CV"
+               onclick="reloadDoc()"><i
+                class="material-icons"><img src="imgs/create_new.png" style="width: 20px;height: 20px;"></i></a></li>
+    </ul>
+</div>
+<script>
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            let mail = user.email;
+            console.log('user id = ' + user.uid);
+            myUser.uid = user.uid;
+            if (mail == null) {
+                mail = '';
+            }
+
+        } else {
+            const logOutButton = document.getElementById('log_out_button');
+            logOutButton.style.visibility = 'hidden';
+            swal({
+                title: 'Welcome',
+                icon: "success",
+                text: 'welcome to our great community my dear guest'
+            });
+            const history1 = document.getElementById('history1');
+            const history2 = document.getElementById('history2');
+            history1.style.visibility = 'hidden';
+            history2.style.visibility = 'hidden';
+        }
+    });
+</script>
+
+<script src="cv_action.js"></script>
+
+</body>
+</html>

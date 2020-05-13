@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link href="home_style.css" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCr69lpsaMeLtjxPq1Qe32fx_gL979wtc0",
+            authDomain: "auth-practicing.firebaseapp.com",
+            databaseURL: "https://auth-practicing.firebaseio.com",
+            projectId: "auth-practicing",
+            storageBucket: "auth-practicing.appspot.com",
+            messagingSenderId: "406848136357",
+            appId: "1:406848136357:web:53bc94139e7af9ce22194c",
+            measurementId: "G-Q4FNSDGVH9"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
+    <link href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript">
+        var uiConfig = {
+            signInSuccessUrl: 'cv_maker.html',
+            signInOptions: [
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+                firebase.auth.EmailAuthProvider.PROVIDER_ID,
+                firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+            ],
+            tosUrl: 'https://www.youtube.com/watch?v=hb85pYZSJaI',
+            privacyPolicyUrl: function () {
+                window.location.assign('welcome.html');
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body id="mybod">
+
+
+<div id="heading-div">
+    <img alt="cv maker logo"
+         id="heading-img"
+         src="https://www.resumecoach.com/wp-content/themes/cv-wp-theme-resumecoach/library/images/logo-rc-home.png">
+    <div id="signing-up">
+        <ul id="signing-list" style="margin-top: 10px">
+            <li><a href="#" onclick="signup()" target="_self">Sign up</a></li>
+            <li>
+                <div class="dumb-space"></div>
+            </li>
+            <li><a href="#" onclick="logIn()" target="_self">Log in</a></li>
+            <li>
+                <div class="dumb-space"></div>
+            </li>
+        </ul>
+    </div>
+</div>
+<h1 class="my_h"><pre style="overflow: hidden">Get hired fast with our
+Online CV Maker</pre>
+</h1>
+<p id="small-intro">Do it in minutes with our online CV maker and cover letter creator. Get 70%more interviews. More
+    than 5 million users have already found the job they deserve with us.</p>
+
+<ul id="signing-up-options">
+    <li>
+        <a href="#" onclick="firebaseSignInMethods()">
+            <div class="sign-up-by"><img alt="google img"
+                                         height="30px"
+                                         src="https://short-cgi.com/wp-content/uploads/2018/02/google-favicon-vector-400x400.png"
+                                         width="30px">
+                <p>START NOW WITH GOOGLE</p></div>
+        </a>
+    </li>
+    <li>
+        <div class="dumb-space"></div>
+    </li>
+    <li>
+        <a href="cv_maker.html">
+            <div class="sign-up-by red"><img alt="google img" height="30px" src="imgs/fintech.png" width="30px">
+                <p style="float: left; margin-left: 30px">START RIGHT NOW</p></div>
+        </a>
+    </li>
+</ul>
+
+<img id="main-img"
+     src="https://www.resumecoach.com/wp-content/themes/cv-wp-theme-resumecoach/library/images/jumbotron/top-resume/quebec.png">
+<div id="mid-div">
+    <div id="container">
+        <div id="left">
+            <div class="up">
+                <img src="https://www.resumecoach.com/wp-content/themes/cv-wp-theme-resumecoach/library/images/jumbotron/top-resume/icon01.svg">
+                <h2>Job-winning Templates</h2>
+                <p>Be in the top 3% that gets past the first round.</p>
+            </div>
+            <div class="down">
+                <img src="https://www.resumecoach.com/wp-content/themes/cv-wp-theme-resumecoach/library/images/jumbotron/top-resume/icon02.svg">
+                <h2>Professional Cover Letter Creator</h2>
+                <p>Enjoy effective cover letter guidance and inspiring examples.</p>
+            </div>
+        </div>
+        <div id="right">
+            <div class="up">
+                <img src="https://www.resumecoach.com/wp-content/themes/cv-wp-theme-resumecoach/library/images/jumbotron/top-resume/icon03.svg">
+                <h2>Integrated Job Search</h2>
+                <p style="width: 200px">Find jobs quickly that match your experience.</p>
+            </div>
+            <div class="down">
+                <img src="https://www.resumecoach.com/wp-content/themes/cv-wp-theme-resumecoach/library/images/jumbotron/top-resume/icon04.svg">
+                <h2 style="margin-top: 2px;">Step-by-step coach</h2>
+                <p style="width: 200px">Expert advice and real-life examples from successful jobseekers.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<h1 class="my_h" id="professional">The best professional resume templates available</h1>
+<div id="resume_options">
+    <ul>
+        <li>
+            <a href="#slider">
+                <div id="all">All</div>
+            </a>
+        </li>
+        <li>
+            <a href="#slider">
+                <div id="with_photo">With Photo</div>
+            </a>
+        </li>
+        <li>
+            <a href="#slider">
+                <div id="no_photo">No Photo</div>
+            </a>
+        </li>
+        <li>
+            <a href="#slider">
+                <div id="cover_letter">Cover Letter</div>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="slider"></div>
+<div id="dumb_stuff">
+    <div id="foot_container">
+        <div id="resume_tools">
+            <h3 class="custom_h3">RESUME TOOLS</h3>
+            <ul>
+                <li><a href="https://www.resumecoach.com/resume-samples/" target="_blank">RESUME EXAMPLES</a></li>
+                <li><a href="https://www.resumecoach.com/write-a-resume/" target="_blank">RESUME WRITING GUIDE</a></li>
+                <li><a href="https://www.resumecoach.com/resume-format/" target="_blank">RESUME FORMAT</a></li>
+                <li><a href="https://www.resumecoach.com/resume-templates-old/" target="_blank">RESUME TEMPLATES</a>
+                </li>
+                <li><a href="https://www.resumecoach.com/resume-templates/professional/" target="_blank">PROFESSIONAL
+                    RESUME</a></li>
+                <li><a href="https://www.resumecoach.com/resume-templates/entry-level/" target="_blank">ENTRY-LEVEL
+                    RESUME</a></li>
+                <li><a href="https://www.resumecoach.com/resume-templates/student/" target="_blank">STUDENT RESUME</a>
+                </li>
+                <li><a href="https://www.resumecoach.com/cover-letter/" target="_blank">COVER LETTER</a></li>
+            </ul>
+        </div>
+        <div id="about_resume_coach">
+            <h3 class="custom_h3">ABOUT RESUME COACH</h3>
+            <ul>
+                <li><a href="https://www.resumecoach.com/blog/" target="_blank">BLOG</a></li>
+                <li><a href="https://www.resumecoach.com/contact/" target="_blank">CONTACT US</a></li>
+                <li><a href="https://www.resumecoach.com/about/">ABOUT US</a></li>
+                <li><a href="https://www.resumecoach.com/affiliate/" target="_blank">AFFILIATE PROGRAM</a></li>
+            </ul>
+        </div>
+        <div id="support">
+            <h3 class="custom_h3">SUPPORT</h3>
+            <ul>
+                <li><a href="https://www.resumecoach.com/terms-of-use/" target="_blank">TERMS & CONDITIONS</a></li>
+                <li><a href="https://www.resumecoach.com/privacy-policy/" target="_blank">PRIVACY POLICY</a></li>
+                <li><a href="https://www.resumecoach.com/cookies/">COOKIES POLICY</a></li>
+                <li><a href="https://www.resumecoach.com/faq/" target="_blank">FAQ</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="bottom_div">
+        <div id="facebook_container">
+            <span id="last_sapn">Copyright 2020  Company  All rights reserved</span>
+            <a href="https://web.facebook.com/hamza.sabri.18" target="_blank"> <img
+                    src="https://www.resumecoach.com/wp-content/themes/cv-wp-theme-resumecoach/library/images/fb-logo-blanco.svg"></a>
+        </div>
+    </div>
+</div>
+<script>
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            const signingList = document.getElementById('signing-list');
+            signingList.innerHTML = '<li><a href="#" target="_self" onclick="putMeIn()"><img src="imgs/next_icon.png" style="width: 38px;" onclick="putMeIn()"></a></li>';
+
+        } else {
+            console.log('no user is in');
+        }
+    });
+
+    function putMeIn() {
+        window.open('cv_maker.html', '_self');
+    }
+</script>
+<script src="home.js"></script>
+</body>
+</html>

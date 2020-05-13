@@ -1,0 +1,402 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: rgb(128, 136, 143);
+    height: 100%;
+    overflow-y: scroll;
+}
+
+html {
+    height: 100%;
+}
+
+#app_bar {
+    width: 100%;
+    height: 8vh;
+    background: #26a0f4;
+}
+
+#app_bar a img {
+    width: 180px;
+    margin-left: 180px;
+    margin-top: 10px;
+}
+
+#app_bar ul {
+    float: right;
+    margin-right: 20px;
+    list-style: none;
+    margin-top: 15px;
+}
+
+#app_bar ul li {
+    float: left;
+    margin-right: 60px;
+}
+
+#app_bar ul li a {
+    color: #CBD3D9;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: Ebrima;
+}
+
+
+#app_bar ul li a:hover {
+    color: #fff;
+}
+
+
+#grey_app_bar {
+    background: #F0F3F5;
+    width: 100%;
+    height: 10vh;
+    position: relative;
+    overflow: hidden;
+
+}
+
+
+#center_grey_app_bar {
+    width: 1480px;
+    height: 70px;
+    display: inline-block;
+    position: absolute;
+    margin: 22px 2%;
+}
+
+#input_div {
+    display: inline;
+    float: left;
+    width: 38%;
+    height: 81.5vh;
+    background: #F0F3F5;
+    margin-top: 0.5vh;
+}
+
+#information_collector {
+    /*background: greenyellow;*/
+    width: 80%;
+    margin-left: 22px;
+    height: 100%;
+    display: inline-block;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#information_collector h2 {
+    margin-left: 20px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+#information_collector span {
+    text-align: start;
+    display: inline-block;
+    margin-left: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    max-width: 350px;
+}
+
+#vertical_div {
+    width: 10%;
+    height: 100%;
+    float: left;
+}
+
+
+#resume_title {
+    max-width: 300px;
+    font-size: 24pt;
+    display: inline-block;
+    border: none;
+    background: #F0F3F5;
+    margin-left: 5px;
+    margin-top: -5px;
+
+}
+
+#resume_title::placeholder {
+    color: gray;
+}
+
+[contenteditable] {
+    outline: 0px solid transparent;
+}
+
+#center_grey_app_bar span {
+    font-size: 12px;
+
+}
+
+#center_grey_app_bar img {
+    width: 25px;
+    float: left;
+    margin-top: 14px;
+}
+
+#adding_img {
+    width: 50%;
+    height: 100px;
+    float: left;
+    margin: 30px 20px;
+
+}
+
+#img_div {
+    width: 280px;
+    height: 100px;
+    margin-top: -15px;
+}
+
+#img_div img, #my_img {
+    float: left;
+    width: 90px;
+    border-radius: 10px;
+}
+
+#my_img {
+    width: 110px;
+}
+
+#img_div span {
+    float: right;
+    font-size: 28px;
+    font-weight: 400;
+    margin-top: 18px;
+}
+
+#rounded_div {
+    background: #2298E9;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    display: inline-block;
+    margin-top: 3px;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    font-weight: 900;
+    font-weight: bold;
+    mso-ansi-font-weight: 900;
+    margin-left: -10px;
+}
+
+#container_of_rounded_div {
+    float: left;
+    width: 100px;
+    margin-top: 12px;
+    display: inline-block;
+    margin-left: 50px;
+}
+
+#container_of_rounded_div pre {
+    display: inline-block;
+    float: right;
+    margin-bottom: 0;
+    margin-top: 8px;
+    color: black;
+}
+
+.switch {
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 2px;
+    width: 170px;
+}
+
+#img_div .switch label .lever {
+    margin-top: 6px;
+    float: left;
+}
+
+#img_div .switch label {
+    font-size: 16px;
+    margin-left: 0;
+    float: left;
+    margin-top: 2px;
+
+}
+
+#text_collector {
+    width: 80%;
+    margin: auto 4%;
+    display: inline-block;
+
+}
+
+/*#first_name , #last_name , #occupation , #phone , #email , #address, #nationality , #date , #social{*/
+/*    max-width: 390px;*/
+/*    background: white;*/
+/*    border: solid lightblue 1pt;*/
+/*    border-radius: 5px;*/
+/*    padding-left: 10px;*/
+/*}*/
+
+#text_collector .custom_input, #input_list .custom_input {
+    max-width: 390px;
+    background: white;
+    border: solid lightblue 1pt;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+#text_collector .custom_input:hover, #input_list .custom_input:hover {
+    background: #f6f6f6;
+}
+
+#input_list2 .custom_input:hover {
+    background: #f6f6f6;
+}
+
+#input_list2 .custom_input {
+    max-width: 390px;
+    background: white;
+    border: solid lightblue 1pt;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+
+.next, .previous {
+    background: #18324F;
+    width: 110px;
+    height: 30px;
+    margin-bottom: 10px;
+    float: right;
+    margin-right: 16px;
+    border-radius: 22px;
+    border: none;
+    text-align: center;
+    padding-bottom: 8px;
+    margin-left: 20px;
+
+}
+
+.next span {
+    padding-left: 12px;
+}
+
+.previous {
+    float: left;
+    margin-left: 10px;
+    color: #18324F;
+    background: white;
+    border: #18324F solid 1px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    padding-bottom: 8px;
+    padding-right: 22px;
+    font-family: Ebrima;
+}
+
+.next div {
+    margin-bottom: 8px;
+    margin-top: 2px;
+
+}
+
+.next div span {
+    font-size: 20px;
+    color: #ffffff;
+    float: left;
+    font-weight: bold;
+    font-weight: 900;
+}
+
+.next div img {
+    width: 35px;
+    height: 20px;
+    margin-top: 2px;
+
+}
+
+#portfolio {
+    display: inline;
+    float: right;
+    width: 62%;
+    height: 81.5vh;
+    margin-left: auto;
+    margin-top: 0.5vh;
+    background-image: url("https://i.pinimg.com/originals/45/3f/14/453f143ad31ed8482ebed9c4084b8059.jpg");
+    overflow-y: scroll;
+}
+
+#portfolio_image {
+    float: right;
+    margin-right: 20px;
+}
+
+#more_options {
+    float: right;
+    width: 18%;
+    height: 28px;
+    border: none;
+    border-radius: 18px;
+    background: #386d6d;
+    margin-bottom: 10px;
+    color: white;
+    margin-right: 30px;
+}
+
+#portfolio h1 {
+    text-align: center;
+}
+
+#personal_info {
+
+    margin-left: 50px;
+    overflow: auto;
+
+}
+
+#personal_info h2 {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#portfolio pre {
+    font-size: 18px;
+}
+
+hr {
+    height: 50px
+}
+
+#toutoreals {
+    width: 400px;
+    height: 60px;
+    float: right;
+    margin-top: -20px;
+}
+
+.toutoreals-list {
+    list-style: none;
+    margin-left: 10px;
+    display: block;
+
+}
+
+.toutoreals-list li a {
+    color: #ff4b1c;
+    font-size: 16px;
+}
+
+.toutoreals-list li {
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 4px;
+}
+
+.toutoreals-list li a:hover {
+    color: #ff16fa;
+}
+
